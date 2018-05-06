@@ -23,8 +23,7 @@ namespace WorkingHours
         public MainWindow()
         {
             InitializeComponent();
-            MytextBlock.Text = "Hello, world";
-            MytextBlock.Background = new SolidColorBrush(Colors.Coral);
+            
         }
     }
 }

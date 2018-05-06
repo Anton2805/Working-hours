@@ -5,16 +5,82 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkingHours"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="402.5" Width="572.333">
+    <Window.Resources>
+        <Style x:Key="BorderStyle" TargetType="{x:Type Border}">
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="Black" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+        </Style>
+        <Style x:Key="TextBlockStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+        </Style>
+    </Window.Resources>
     <Grid>
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="Black" Offset="0"/>
-                <GradientStop Color="White" Offset="1"/>
-            </LinearGradientBrush>
-        </Grid.Background>
-        <TextBlock x:Name="MytextBlock" HorizontalAlignment="Left" Margin="144,83,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
 
-
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="Parameter" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Style="{StaticResource TextBlockStyle}">Показатель</TextBlock>
+        <TextBlock x:Name="month" Grid.Column="4" Style="{StaticResource TextBlockStyle}">Месяц</TextBlock>
+        <TextBlock x:Name="day" Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" Style="{StaticResource TextBlockStyle}">День</TextBlock>
+        <TextBlock x:Name="date" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Style="{StaticResource TextBlockStyle}">Дата</TextBlock>
+        <TextBlock x:Name="timesDay" Grid.Column="3"  Grid.Row="1" Grid.RowSpan="2" Style="{StaticResource TextBlockStyle}">Время суток</TextBlock>
+        <TextBlock x:Name="total" Grid.Row="3" Style="{StaticResource TextBlockStyle}">ИТОГО</TextBlock>
+        <TextBlock x:Name="debt" Grid.Column="4" Grid.Row="1"  Grid.ColumnSpan="2" Style="{StaticResource TextBlockStyle}">Долг</TextBlock>
+        <TextBlock x:Name="leaveDebt" Grid.Column="4" Grid.Row="2" Style="{StaticResource TextBlockStyle}">Уход</TextBlock>
+        <TextBlock x:Name="comingDebt" Grid.Column="5" Grid.Row="2" Style="{StaticResource TextBlockStyle}">Приход</TextBlock>
+        <TextBlock x:Name="workingOff" Grid.Column="6" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource TextBlockStyle}">Отработка</TextBlock>
+        <TextBlock x:Name="leaveWorkingOff" Grid.Column="6" Grid.Row="2" Style="{StaticResource TextBlockStyle}">Уход</TextBlock>
+        <TextBlock x:Name="comingWorkingOff" Grid.Column="7" Grid.Row="2" Style="{StaticResource TextBlockStyle}">Приход</TextBlock>
+        <TextBlock x:Name="balance" Grid.Column="8" Grid.Row="1" Grid.RowSpan="2" Style="{StaticResource TextBlockStyle}">Остаток</TextBlock>
+        <Border x:Name="MarkTotal" Grid.Row="3" Grid.ColumnSpan="9" Style="{StaticResource BorderStyle}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+        </Border>
+        <TextBlock x:Name="dateValue" Grid.Column="1" Grid.Row="3" Grid.RowSpan="2" Style="{StaticResource TextBlockStyle}"/>
+        <TextBlock x:Name="dayValue" Grid.Column="2" Grid.Row="3" Grid.RowSpan="2" Style="{StaticResource TextBlockStyle}"/>
+        <TextBlock x:Name="timesDayValue" Grid.Column="3" Grid.Row="3" Grid.RowSpan="2" Style="{StaticResource TextBlockStyle}"/>
+        <TextBlock x:Name="leaveDebtValue" Grid.Column="4" Grid.Row="3" Grid.RowSpan="2" Style="{StaticResource TextBlockStyle}"/>
+        <TextBlock x:Name="comingDebtValue" Grid.Column="5" Grid.Row="3" Grid.RowSpan="2" Style="{StaticResource TextBlockStyle}"/>
+        <TextBlock x:Name="leaveWorkingOffValue" Grid.Column="6" Grid.Row="3" Grid.RowSpan="2" Style="{StaticResource TextBlockStyle}"/>
+        <TextBlock x:Name="comingWorkingOffValue" Grid.Column="7" Grid.Row="3" Grid.RowSpan="2" Style="{StaticResource TextBlockStyle}"/>
+        <TextBlock x:Name="balanceValue" Grid.Column="8" Grid.Row="3" Grid.RowSpan="2" Style="{StaticResource TextBlockStyle}"/>
+        <ListView x:Name="listView" Grid.ColumnSpan="9" Grid.Column="0" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Top" Width="100">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>
