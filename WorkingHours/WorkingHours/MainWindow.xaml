@@ -94,8 +94,8 @@
 
             </ListView>
         </Border>
-        <Border x:FieldModifier="MarkTotal" Style="{StaticResource BorderStyle}" Grid.Row="5" Grid.ColumnSpan="11">
+        <!--<Border x:Name="MarkTotal" Style="{StaticResource BorderStyle}" Grid.Row="5" Grid.ColumnSpan="11">
             
-        </Border>
+        </Border>-->
     </Grid>
 </Window>
