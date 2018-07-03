@@ -12,9 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WorkingHours.Model;
 
-namespace WorkingHours
+namespace WpfApplication1
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -24,7 +23,6 @@ namespace WorkingHours
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new ViewModel();
         }
     }
 }
