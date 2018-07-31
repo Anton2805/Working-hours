@@ -31,20 +31,22 @@ namespace WorkingHours
         public List<Model> Result { get; set; }
         public Model Total { get; set; }
         public ICommand Add { get; set; }
-        public DelegateCommand<string> AddLeaveDebtTime { get; }
+        public DelegateCommand<Model> AddLeaveDebtTime { get; }
 
         public ViewModel()
         {
             Result = new List<Model>();
-            AddLeaveDebtTime = new DelegateCommand<string>(str =>
+            AddLeaveDebtTime = new DelegateCommand<Model>(str =>
             {
+                EditModel{}
                 AddTime(str);
             });
         }
+        
 
-        private void AddTime(string str)
+        private void AddTime(Model str)
         {
-            Result.Add(str);
+            Result.Add();
         }
     }
 }
