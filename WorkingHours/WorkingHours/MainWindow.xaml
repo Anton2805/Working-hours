@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:WorkingHours"
         mc:Ignorable="d"
         Title="Учёт рабочего времени" Height="402.5" Width="742.332">
+    <Window.DataContext>
+        <local:ViewModel/>
+    </Window.DataContext>
     <Window.Resources>
         <Style x:Key="BorderStyle" TargetType="{x:Type Border}">
             <Setter Property="BorderThickness" Value="1" />
@@ -52,7 +55,7 @@
         <TextBlock x:Name="date" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Style="{StaticResource TextBlockStyle}" >Дата</TextBlock>
 
         <TextBlock x:Name="debt" Grid.Column="4" Grid.Row="1" Style="{StaticResource TextBlockStyle}" >Д о л г</TextBlock>
-        <TextBlock x:Name="leaveDebt" Grid.Column="3" Grid.Row="2" Style="{StaticResource TextBlockStyle}" >Уход</TextBlock>
+        <TextBlock x:Name="leaveDebt" Grid.Column="3" Grid.Row="2" Style="{StaticResource TextBlockStyle}" Text="{Binding Result}">Уход</TextBlock>
         <TextBlock x:Name="comingDebt" Grid.Column="4" Grid.Row="2" Style="{StaticResource TextBlockStyle}" >Приход</TextBlock>
         <TextBlock x:Name="timeDebt" Grid.Column="5" Grid.Row="2" Style="{StaticResource TextBlockStyle}" >Время</TextBlock>
         <TextBlock x:Name="workingOff" Grid.Column="6" Grid.Row="1" Grid.ColumnSpan="3" Style="{StaticResource TextBlockStyle}" >О т р а б о т к а</TextBlock>

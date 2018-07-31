@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Prism.Commands;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace WorkingHours.Model
+namespace WorkingHours
 {
     class Model
     {
@@ -14,7 +15,7 @@ namespace WorkingHours.Model
         /// </summary>
         public DateTime Date { get; set; } // Дата долга или отработки
         public string Day { get; set; } // День недели долга или отработки
-        public string TimesDay { get; set; } // Время суток, в течение которого произошли либо долг, либо отрботка
+        public string TimesDay { get; set; } // Время суток, в течение которого произошли либо долг, либо отработка
         public string TimeDebt { get; set; } // Продолжительность долга
         public string LeaveDebt { get; set; } // Уход в рабочее время
         public string ComingDebt { get; set; } // Приход в рабочее время       
@@ -30,5 +31,20 @@ namespace WorkingHours.Model
         public List<Model> Result { get; set; }
         public Model Total { get; set; }
         public ICommand Add { get; set; }
+        public DelegateCommand<string> AddLeaveDebtTime { get; }
+
+        public ViewModel()
+        {
+            Result = new List<Model>();
+            AddLeaveDebtTime = new DelegateCommand<string>(str =>
+            {
+                AddTime(str);
+            });
+        }
+
+        private void AddTime(string str)
+        {
+            Result.Add(str);
+        }
     }
 }

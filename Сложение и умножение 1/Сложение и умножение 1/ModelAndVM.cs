@@ -12,7 +12,7 @@ namespace Сложение_и_умножение_1
     class ModelAndVM : INotifyPropertyChanged
     {
         public ObservableCollection<double> _MyValues = new ObservableCollection<double>();
-        public ReadOnlyObservableCollection<double> MyPublicValues;
+        public ReadOnlyObservableCollection<double> MyPublicValues { get; set; }
         public DelegateCommand<string> AddCommand { get; }
         public DelegateCommand<int?> RemoveCommand { get; }
         public event PropertyChangedEventHandler PropertyChanged;

@@ -21,6 +21,6 @@
         <Button DockPanel.Dock="Right" VerticalAlignment="Top" Content="Remove"
                 Width="130" Margin="5" Command="{Binding RemoveCommand}"
                 CommandParameter="{Binding ElementName=TheListBox, Path=SelectedIndex}"/>
-        <ListBox x:Name="TheListBox" ItemsSource="{Binding }"/>
+        <ListBox x:Name="TheListBox" ItemsSource="{Binding MyPublicValues}"/>
     </DockPanel>
 </Window>
