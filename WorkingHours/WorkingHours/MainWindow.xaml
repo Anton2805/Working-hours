@@ -55,7 +55,7 @@
         <TextBlock x:Name="date" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Style="{StaticResource TextBlockStyle}" >Дата</TextBlock>
 
         <TextBlock x:Name="debt" Grid.Column="4" Grid.Row="1" Style="{StaticResource TextBlockStyle}" >Д о л г</TextBlock>
-        <TextBlock x:Name="leaveDebt" Grid.Column="3" Grid.Row="2" Style="{StaticResource TextBlockStyle}" Text="{Binding Result}">Уход</TextBlock>
+        <TextBlock x:Name="leaveDebt" Grid.Column="3" Grid.Row="2" Style="{StaticResource TextBlockStyle}">Уход</TextBlock>
         <TextBlock x:Name="comingDebt" Grid.Column="4" Grid.Row="2" Style="{StaticResource TextBlockStyle}" >Приход</TextBlock>
         <TextBlock x:Name="timeDebt" Grid.Column="5" Grid.Row="2" Style="{StaticResource TextBlockStyle}" >Время</TextBlock>
         <TextBlock x:Name="workingOff" Grid.Column="6" Grid.Row="1" Grid.ColumnSpan="3" Style="{StaticResource TextBlockStyle}" >О т р а б о т к а</TextBlock>
@@ -80,11 +80,17 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <ComboBox x:Name="dateEvent" Grid.Column="1" Grid.Row="3"/>
-                <TextBox x:Name="leaveDebtValue" Grid.Column="3" Style="{StaticResource TextBoxStyle}">Уход</TextBox>
-                <TextBox x:Name="comingDebtValue" Grid.Column="4" Grid.Row="3" Style="{StaticResource TextBoxStyle}">Приход</TextBox>
-                <TextBox x:Name="leaveWorkingOffValue" Grid.Column="6" Grid.Row="3" Style="{StaticResource TextBoxStyle}">Приход</TextBox>
-                <TextBox x:Name="comingWorkingOffValue" Grid.Column="7" Grid.Row="3" Style="{StaticResource TextBoxStyle}">Уход</TextBox>
+                <ComboBox x:Name="dateEvent" Grid.Column="1" Grid.Row="3"
+                          Text="{Binding Date}" Width="40"/>
+                <TextBox x:Name="leaveDebtValue" Grid.Column="3" Style="{StaticResource TextBoxStyle}"
+                         Text="{Binding Path=EditModel.LeaveDebt}"
+                         Width="40" Grid.Row="0" VerticalAlignment="Bottom"/>
+                <TextBox x:Name="comingDebtValue" Grid.Column="4" Grid.Row="3" Style="{StaticResource TextBoxStyle}"
+                         Text="{Binding Path=EditModel.ComingDebt}" Width="40"/>
+                <TextBox x:Name="leaveWorkingOffValue" Grid.Column="6" Grid.Row="3" Style="{StaticResource TextBoxStyle}"
+                         Text="{Binding ComingWorkingOff}" Width="40"/>
+                <TextBox x:Name="comingWorkingOffValue" Grid.Column="7" Grid.Row="3" Style="{StaticResource TextBoxStyle}"
+                         Text="{Binding LeaveWorkingOff}" Width="40"/>
                 <TextBlock x:Name="dayValue" Grid.Column="2" Grid.Row="3" Style="{StaticResource TextBlockStyle}"/>
                 <TextBlock x:Name="timesDayValue" Grid.Column="3" Grid.Row="3" Style="{StaticResource TextBlockStyle}"/>
                 <TextBlock x:Name="timeDebtValue" Grid.Column="5" Grid.Row="3" Style="{StaticResource TextBlockStyle}"/>
@@ -94,7 +100,8 @@
         </Border>
 
         <Border x:Name="MarkList" Style="{StaticResource BorderStyle}" Grid.Row="4" Grid.ColumnSpan="11" Grid.RowSpan="1" >
-            <ListView x:Name="listView" Grid.ColumnSpan="9" Grid.RowSpan="1" Grid.Column="0" HorizontalAlignment="Stretch" Grid.Row="4" VerticalAlignment="Stretch" Background="Aquamarine">
+            <ListView x:Name="listView" Grid.ColumnSpan="9" Grid.RowSpan="1" Grid.Column="0" HorizontalAlignment="Stretch"
+                      Grid.Row="4" VerticalAlignment="Stretch" Background="Aquamarine">
 
             </ListView>
         </Border>
@@ -115,6 +122,6 @@
                 <TextBlock x:Name="total" Grid.Column=" 0" Style="{StaticResource TextBlockStyle}" >ИТОГО</TextBlock>
             </Grid>
         </Border>
-        <Button x:Name="button" Content="Добавить" Grid.Column="9"/>
+        <Button x:Name="button" Content="Добавить" Grid.Column="9" Command="{Binding Path=AddData}"/>
     </Grid>
 </Window>
